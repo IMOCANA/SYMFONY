@@ -1,0 +1,171 @@
+
+{#tiene que salir el usuario y al lado enlaces para poner nuevos, actualizar y eliminar luego si hacer click en el id o mail
+y sale la info del user.
+#}
+
+
+{%  extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div>
+
+        <form method="post" action="{{  path('app_user_doUpdate') }}">
+            <input type="hidden" name="id" value="{{ user.id }}">
+            <input type="number" value="{{ user.id }}" name="showId" disabled="disabled"><br>
+            <input type="email" value="{{ user.email }}" name="email"><br>
+            <input type="text" value="{{ user.username }}" name="username"><br>
+            <input type="text" value="{{ user.password }}" name="password"><br>
+
+            <input type="datetime" value="{{ user.createdAt|dat }}" name="createdAt" disabled="disabled"><br>
+            <input type="text" value="{{ user.updateAt }}" name="updatedAt"disabled="disabled"><br>
+            <input type="submit" value="Update"><br>
+
+            </form>
+
+
+    </div>
+
+
+
+UserController.Php ----> Se llamaria asi el fichero
+
+
+public function doUpdateAction(Request $request)
+
+$m = $this->getDoctrine() ->getManager();
+$repository =$m-> getRespository('AppBundle:User');
+$id =$request ->request->get('id');
+$email = $request ->request->get('email');
+$password = $request ->request->get('password');
+$username = $request ->request->get('username');
+
+
+$user =$respository->find($id);
+
+$user->setEmail($email);
+$user->setPasswor($password);
+$user->setUsername($username);
+
+$m->flush();
+
+$this-> addFlash('messages', 'User updated');
+
+return $this->redirectToRoute('app_user_index');
+}
+
+
+/**
+* @Route(
+        path="/insert",
+        name="app_user_insert"
+*)
+*/
+
+public function insertAction()
+
+{
+    return $this->render(':user:insert.html.twig');
+}
+public function doInsertAction(Request $request)
+
+{
+
+$user = new User();
+$user-> setEmail($request -> request-> get('email'));
+$user-> setUsername($request -> request-> get('username'));
+$user-> setPassword($request -> request-> get('password'));
+
+}
+
+
+
+
+
+
+
+
+
+
+$this-> addFlash('messages', 'New user created');
+
+return $this->redirectToRoute('app_user_index');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+Usercontrllerphh
+
+/**
+* @Route(
+path="/remove",
+name="app_user_remove"
+*)
+*/
+
+
+
+public function removeAction($id)
+{
+    $m = $this->getDoctrine()->getManager();
+    $repository = $m -> getRepository('AppBundle:User');
+$user = $respository -> find($id);
+$m-> remove($user);
+
+$m->flush(); (es como un guardar o un commit)
+
+$this-> addFlash('messages', 'User has been removed');
+
+return $this-> redirectToRoute('app_user_index');
+
+}
+
+
+User index --->
+
+
+</table>
+<div style="margin-top:10 px">
+    <a href
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}CALCULADORA SYMFONY{% endblock %}</title>
+
+</head>
+<body>
+{% block body %}
+
+    <h1>CALCULADORA SYMFONY</h1>
+
+    <form method="post" action="{{ action }}">
+        <input type="number" name="op1"><br>
+        <input type="number" name="op2"><br>
+        <input type="submit" value="ok">
+    </form>
+{% endblock %}
+
+</body>
+</html>
+
