@@ -9,10 +9,12 @@ use AppBundle\Services\calculatorServices;
 
 class calculatorController extends Controller
 {
+
+
     /**
-     * @Route("/calculadora", name="homepage")
+     * @Route("/calculadora", name="calcu")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request) /*name="calcu" le pongo el nombre que quiera*/
     {
         // replace this example code with whatever you need
         return $this->render('base2Calculator.html.twig');

@@ -11,10 +11,13 @@
 {% block body %}
 
     <h1>CALCULADORA STRING SYMFONY</h1>
+    <h2>Introduce un String de varias palabras</h2>
 
-    El resultado es: {{ resultado }}
+    <form method="post" action="{{ action }}">
+        <input type="text" name="op1"><br>
+        <input type="submit" value="ok">
+    </form>
 {% endblock %}
 
 </body>
 </html>
-

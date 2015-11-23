@@ -1,3 +1,13 @@
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@AppBundle/Controller/DefaultController.php"
+    type:     annotation
+
+
+app2:
+    resource: "@AppBundle/Controller/calculatorController.php"
+    type:     annotation
+
+
+app3:
+    resource: "@AppBundle/Controller/stringController.php"
     type:     annotation

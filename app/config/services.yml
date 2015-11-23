@@ -11,3 +11,7 @@ services:
       calculator:
 
           class: AppBundle\Services\calculatorServices
+
+      string:
+
+          class: AppBundle\Services\stringServices

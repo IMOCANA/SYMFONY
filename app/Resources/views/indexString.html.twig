@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}CALCULADORA STRING SYMFONY{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+</head>
+<body>
+{% block body %}
+
+    <h1>CALCULADORA STRING SYMFONY</h1>
+
+    <ul>
+        <li><a href="{{ path('homepage') }}">Index</a></li>
+        <li><a href="{{ path('app_string_minAction') }}">Transforma a Minusculas</a></li>
+        <li><a href="{{ path('app_string_mayAction') }}">Transforma a Mayusculas</a></li>
+        <li><a href="{{ path('app_string_cmayAction') }}">Transforma 1er Caracter Mayúsculas</a></li>
+        <li><a href="{{ path('app_string_countAction') }}">Contar Caracteres</a></li>
+        <li><a href="{{ path('app_string_inverseAction') }}">Invierte los Caracteres</a></li>
+    </ul>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

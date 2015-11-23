@@ -1,25 +1,17 @@
-
-{% extends '::base.html.twig' %}
-
-
+{% extends 'base.html.twig' %}
 
 {% block body %}
 
-<div>
-
-    <form method="post" action="{{  path('app_user_doUpdate') }}">
-
-
-       Email:       <input type="email" name="email"><br>
-       Password:    <input type="text" name="password"><br>
-        <input type="text"  name="username"><br>
-
-
-        <input type="datetime" value="{{ user.createdAt|dat }}" name="createdAt" disabled="disabled"><br>
-        <input type="text" value="{{ user.updateAt }}" name="updatedAt"disabled="disabled"><br>
-        <input type="submit" value="Update"><br>
-
+    <div>
+    <form method="post" action="{{ path('app_user_doinsert') }}">
+        Email: <input type="email" name="email"><br>
+        Password: <input type="text" name="password"><br>
+        Age: <input type="text" name="age"><br>
+        Username: <input type="text" name="username"><br>
+        <input type="submit" value="Insert">
     </form>
 
 
-</div>
+
+
+{% endblock %}
